@@ -1,0 +1,159 @@
+@page {
+    size: A4;
+    margin: 0mm;
+}
+
+body {
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'Sunflower', sans-serif;
+    font-size: 2em;
+    margin: auto 0px auto 30px;
+}
+
+
+/* flexbox containers */
+
+h2,
+h3 {
+    font-family: 'Cabin', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.75em;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    font-size: 1.25em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.page-break {
+    page-break-after: always;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.content-container p {
+    margin-top: 5px;
+}
+
+.base-margins {
+    margin-left: 0.75in;
+    margin-top: 5%;
+    margin-right: 0.75in;
+    margin-bottom: 5%;
+}
+
+.details-container .content-container {
+    flex-grow: 1;
+    width: 50%;
+    flex-wrap: nowrap;
+}
+
+.row {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.graph-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.graph-container .graph-container {
+    flex-wrap: nowrap;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+/* p.content-container {
+    justify-content: space-evenly;
+} */
+
+.vertical-container {
+    flex-direction: column;
+}
+
+.content-item {
+    /* flex-grow: 1; */
+    flex-shrink: 0;
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.details-container .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.profileimg {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 150px;
+}
+
+.logoimg {
+    height: 60px;
+    object-fit: contain;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+table {
+    background-color: #e9faff;
+    border-radius: 5px;
+    border-spacing: 0px;
+    width: 100%;
+    border-collapse: inherit;
+    table-layout: fixed;
+    text-align: center;
+}
+
+tr.table-header {
+    background-color: #019EB7;
+    font-size: 1.25em;
+    font-style: normal;
+}
+
+table.even tr:nth-child(2n+2) {
+    background-color: #d6f0ff;
+}
+
+td {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

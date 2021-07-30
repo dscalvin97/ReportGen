@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{ student_fname }}'s {{ subject_name }} Test Report</title>
+    <link rel="stylesheet" href="report_template_styling.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="base-margins content-container">
+        <div class="content-item header-container">
+            <div class="profile-container">
+                <img src="{{ student_profile_img }}" alt="student profile image" class="profileimg">
+                <h1>{{ student_fname }} - {{ subject_name }} Report</h1>
+            </div>
+            <img src="./logo.png" alt="Company Logo" class="logoimg">
+        </div>
+
+        <h2 class="content-item">Personal Details</h2>
+        <div class="content-item details-container">
+            <div class="row">
+                <div class="content-container">
+                    <b>Name:</b>
+                    <p>{{ student_name }}</p>
+                </div>
+                <div class="content-container">
+                    <b>DOB:</b>
+                    <p>{{ student_dob }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="content-container">
+                    <b>Gender:</b>
+                    <p>{{ student_gender }}</p>
+                </div>
+                <div class="content-container">
+                    <b>Address:</b>
+                    <p>{{ student_address }}</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="content-item">Academic Details</h2>
+        <div class="content-item details-container">
+            <div class="row">
+                <div class="content-container">
+                    <b>School:</b>
+                    <p>{{ school_name }}</p>
+                </div>
+                <div class="content-container">
+                    <b>Grade:</b>
+                    <p>{{ student_grade }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="content-container">
+                    <b>Registration Number:</b>
+                    <p>{{ student_regid }}</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="content-item">{{ subject_name }} Test Report</h2>
+        <div class="content-item details-container">
+            <div class="row">
+                <div class="content-container">
+                    <b>Test Round:</b>
+                    <p>{{ test_round_no }}</p>
+                </div>
+                <div class="content-container">
+                    <b>Total marks:</b>
+                    <p>{{ student_total_marks }} / {{ test_total }}</p>
+                </div>
+                <div class="content-container">
+                    <b>Date of test attempt:</b>
+                    <p>{{ student_test_date }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="content-container">
+                    <b>Result:</b>
+                    <p>{{ student_final_result }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <p class="page-break"></p>
+    <div class="base-margins content-container">
+        <div class="content-item header-container">
+            <h2 class="content-item">Additional Details</h2>
+            <img src="./logo.png" alt="Company Logo" class="logoimg">
+        </div>
+        <div class="content-item content-container">
+            <h3 class="content-item">Overall Statistics:</h3>
+            <div class="content-item graph-container">
+                <p>
+                    <img src="{{ total_attempt_barchart }}" alt="total attempts barchart"><br>Total attempted questions
+                </p>
+                <p>
+                    <img src="{{ total_attempt_accuracy_barchart }}" alt="attempt accuracy barchart"><br>Correct Answers/Incorrect Answers
+                </p>
+            </div>
+            <h3 class="content-item">Detailed Performance Statistics</h3>
+            <div class="content-item graph-container vertical-container">
+                <p>
+                    <img src="{{ score_category_perf_linechart }}" alt="score_category_perf_linechart"><br>Per Score Category Comparison
+                </p>
+                <div class="content-item graph-container">
+                    <p>
+                        <img src="{{ test_attempt_spiderchart }}" alt="test_attempt_spiderchart"><br>Per Question Attempt Comparison
+                    </p>
+                    <p>
+                        <img src="{{ test_accuracy_spiderchart }}" alt="test_accuracy_spiderchart"><br>Per Question Accuracy Comparison
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p style="page-break-before: always;"></p>
+    <div class="base-margins content-container">
+        <div class="content-item header-container">
+            <h2 class="content-item">Answer Comparison</h2>
+            <img src="./logo.png" alt="Company Logo" class="logoimg">
+        </div>
+        <div class="content-container content-item">
+            <table class="even">
+                <tr class="table-header">
+                    <th>Question No.</th>
+                    <th>What you marked</th>
+                    <th>Correct Answer</th>
+                    <th>Your Score</th>
+                </tr>
+                {% for question in question_details %}
+                <tr>
+                    <td style="font-weight: bold;">{{ question.0 }}</td>
+                    <td>{{ question.1.0 }}</td>
+                    <td>{{ question.1.1 }}</td>
+                    <td>{{ question.1.4 }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
